@@ -12,18 +12,18 @@ public class Game {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Добро пожаловать в игру Поле чудес!");
-        System.out.println("Для завершения игры введите \"exit\"");
-        System.out.print("Введите Ваше имя: ");
+        System.out.println("Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ РёРіСЂСѓ РџРѕР»Рµ С‡СѓРґРµСЃ!");
+        System.out.println("Р”Р»СЏ Р·Р°РІРµСЂС€РµРЅРёСЏ РёРіСЂС‹ РІРІРµРґРёС‚Рµ \"exit\"");
+        System.out.print("Р’РІРµРґРёС‚Рµ Р’Р°С€Рµ РёРјСЏ: ");
         String namePlayer = scanner.nextLine();
-        System.out.printf("%s, я загадал слово! Ты можешь отгадать его полностью или по буквам. " +
-                "Просто вводи его в консоль. Поехали!\n", namePlayer);
-        System.out.println("Слово состоит только из букв латинского алфавита!");
+        System.out.printf("%s, СЏ Р·Р°РіР°РґР°Р» СЃР»РѕРІРѕ! РўС‹ РјРѕР¶РµС€СЊ РѕС‚РіР°РґР°С‚СЊ РµРіРѕ РїРѕР»РЅРѕСЃС‚СЊСЋ РёР»Рё РїРѕ Р±СѓРєРІР°Рј. " +
+                "РџСЂРѕСЃС‚Рѕ РІРІРѕРґРё РµРіРѕ РІ РєРѕРЅСЃРѕР»СЊ. РџРѕРµС…Р°Р»Рё!\n", namePlayer);
+        System.out.println("РЎР»РѕРІРѕ СЃРѕСЃС‚РѕРёС‚ С‚РѕР»СЊРєРѕ РёР· Р±СѓРєРІ Р»Р°С‚РёРЅСЃРєРѕРіРѕ Р°Р»С„Р°РІРёС‚Р°!");
         randomWord = wordsArray[getRandomNumberFromWords()];
         randomWordToArray = randomWord.toLowerCase(Locale.ROOT).split("");
         inputFigures = initializationArray();
         while (true) {
-            System.out.print("Ввод: ");
+            System.out.print("Р’РІРѕРґ: ");
             String box = scanner.nextLine().toLowerCase(Locale.ROOT);
             if (box.equals("exit")) {
                 printMessageExit();
@@ -38,7 +38,7 @@ public class Game {
                     return;
                 }
             } else {
-                System.out.println("Нет, это не " + box);
+                System.out.println("РќРµС‚, СЌС‚Рѕ РЅРµ " + box);
                 System.out.println();
             }
         }
@@ -59,28 +59,28 @@ public class Game {
     }
 
     private static void printMessageExit() {
-        System.out.println("Я загадывал слово - " + randomWord);
-        System.out.println("Игра окончена");
+        System.out.println("РЇ Р·Р°РіР°РґС‹РІР°Р» СЃР»РѕРІРѕ - " + randomWord);
+        System.out.println("РРіСЂР° РѕРєРѕРЅС‡РµРЅР°");
     }
 
     private static void printMessageWinAllWord() {
         System.out.println();
-        System.out.println("Верно! Это слово - " + randomWord);
-        System.out.println("Поздравляю! Ты выиграл " + prizes[getRandomNumberFromPrizes()]);
-        System.out.println("Подарок можешь забрать на почте)");
+        System.out.println("Р’РµСЂРЅРѕ! Р­С‚Рѕ СЃР»РѕРІРѕ - " + randomWord);
+        System.out.println("РџРѕР·РґСЂР°РІР»СЏСЋ! РўС‹ РІС‹РёРіСЂР°Р» " + prizes[getRandomNumberFromPrizes()]);
+        System.out.println("РџРѕРґР°СЂРѕРє РјРѕР¶РµС€СЊ Р·Р°Р±СЂР°С‚СЊ РЅР° РїРѕС‡С‚Рµ)");
     }
 
     private static void printMessageSpell(String box) {
         for (int i = 0; i < inputFigures.length; i++) {
             if (inputFigures[i].equals("_") && randomWordToArray[i].equalsIgnoreCase(box)) {
                 inputFigures[i] = box;
-                System.out.println("Это верная буква!");
+                System.out.println("Р­С‚Рѕ РІРµСЂРЅР°СЏ Р±СѓРєРІР°!");
                 System.out.println(Arrays.toString(inputFigures));
                 System.out.println();
                 return;
             }
         }
-        System.out.println("Такой буквы нет");
+        System.out.println("РўР°РєРѕР№ Р±СѓРєРІС‹ РЅРµС‚");
         System.out.println();
     }
 
