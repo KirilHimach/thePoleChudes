@@ -59,6 +59,7 @@ public class Game {
     }
 
     private static void printMessageExit() {
+        System.out.println();
         System.out.println("Я загадывал слово - " + randomWord);
         System.out.println("Игра окончена");
     }
