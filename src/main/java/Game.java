@@ -3,7 +3,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Game {
-    private static final String[] words = {"Apple", "Banana", "Chess", "Field", "Ball", "Tennis",
+    private static final String[] wordsArray = {"Apple", "Banana", "Chess", "Field", "Ball", "Tennis",
             "Minsk", "Pen", "Eraser", "Laptop"};
     private static final String[] prizes = {"Bentley", "Iphone 14 pro max", "Vacuum cleaner", "Cup", "Beer"};
     private static String randomWord;
@@ -19,7 +19,7 @@ public class Game {
         System.out.printf("%s, я загадал слово! Ты можешь отгадать его полностью или по буквам. " +
                 "Просто вводи его в консоль. Поехали!\n", namePlayer);
         System.out.println("Слово состоит только из букв латинского алфавита!");
-        randomWord = words[getRandomNumberFromWords()];
+        randomWord = wordsArray[getRandomNumberFromWords()];
         randomWordToArray = randomWord.toLowerCase(Locale.ROOT).split("");
         inputFigures = initializationArray();
         while (true) {
@@ -37,12 +37,15 @@ public class Game {
                     printMessageWinAllWord();
                     return;
                 }
+            } else {
+                System.out.println("Нет, это не " + box);
+                System.out.println();
             }
         }
 
     }
     private static int getRandomNumberFromWords() {
-        return (int) (Math.random() * words.length);
+        return (int) (Math.random() * wordsArray.length);
     }
 
     private static int getRandomNumberFromPrizes() {
@@ -61,6 +64,7 @@ public class Game {
     }
 
     private static void printMessageWinAllWord() {
+        System.out.println();
         System.out.println("Верно! Это слово - " + randomWord);
         System.out.println("Поздравляю! Ты выиграл " + prizes[getRandomNumberFromPrizes()]);
         System.out.println("Подарок можешь забрать на почте)");
