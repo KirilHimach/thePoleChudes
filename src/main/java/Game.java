@@ -46,11 +46,11 @@ public class Game {
 
     }
     private static int getRandomNumberFromWords() {
-        return new Random().nextInt(10);
+        return new Random().nextInt(wordsArray.length);
     }
 
     private static int getRandomNumberFromPrizes() {
-        return  new Random().nextInt(5);
+        return  new Random().nextInt(prizes.length);
     }
 
     private static String[] initializationArray() {
