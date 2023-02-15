@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -45,11 +46,11 @@ public class Game {
 
     }
     private static int getRandomNumberFromWords() {
-        return (int) (Math.random() * wordsArray.length);
+        return new Random().nextInt(10);
     }
 
     private static int getRandomNumberFromPrizes() {
-        return  (int) (Math.random() * prizes.length);
+        return  new Random().nextInt(5);
     }
 
     private static String[] initializationArray() {
